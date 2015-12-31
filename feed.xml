@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes</title>
+    <description></description>
+    <link>http://sashagusev.github.io/notes/</link>
+    <atom:link href="http://sashagusev.github.io/notes/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 30 Dec 2015 19:39:31 -0500</pubDate>
+    <lastBuildDate>Wed, 30 Dec 2015 19:39:31 -0500</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Notes on &#39;Limitations of GCTA...&#39;</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/notes/images/plot_krishna_kumar_pnas.svg&quot; alt=&quot;down-sampled heritability estimates&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 30 Dec 2015 12:21:14 -0500</pubDate>
+        <link>http://sashagusev.github.io/notes/heritability/2015/12/30/notes-on-GCTA.html</link>
+        <guid isPermaLink="true">http://sashagusev.github.io/notes/heritability/2015/12/30/notes-on-GCTA.html</guid>
+        
+        
+        <category>heritability</category>
+        
+      </item>
+    
+  </channel>
+</rss>
