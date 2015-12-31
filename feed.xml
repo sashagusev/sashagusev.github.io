@@ -3,10 +3,10 @@
   <channel>
     <title>Notes</title>
     <description></description>
-    <link>http://sashagusev.github.io//</link>
-    <atom:link href="http://sashagusev.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 31 Dec 2015 14:30:24 -0500</pubDate>
-    <lastBuildDate>Thu, 31 Dec 2015 14:30:24 -0500</lastBuildDate>
+    <link>http://sashagusev.github.io/</link>
+    <atom:link href="http://sashagusev.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 31 Dec 2015 14:36:21 -0500</pubDate>
+    <lastBuildDate>Thu, 31 Dec 2015 14:36:21 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -23,7 +23,7 @@
 
 &lt;p&gt;&lt;strong&gt;Simulations from the SKK model.&lt;/strong&gt; The SKK paper describes a simulation framework that satisfies the GREML assumptions: 50,000 SNPs for 2,000 individuals are randomly generated; SNP effect-sizes are independent and identically distributed (the infinitesimal model); and there is no population structure. I replicated the SKK simulations (see details and code below) and re-plotted their Figure 2. Specifically, I generated 50,000 random SNPs (MAF=0.5); 2,000 individuals; and an infinitesimal phenotype with h2g = 0.75. The GREML estimate of h2g for this sample was 0.60 (se 0.15), within the noise of the SKK simulation estimate of 0.69 (se 0.15). I then performed 500 down-samples of the data to 5,000 random SNPs, recomputed the GRM, and re-estimated h2g. Following the SKK format, I plot the overall estimated h2g per-SNP (0.69/50,000) and the density of the down-sampled h2g per-SNP (down-sampled h2g/5,000) below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//images/plot_krishna_kumar_pnas.svg&quot; alt=&quot;down-sampled heritability estimates&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://sashagusev.github.io/images/plot_krishna_kumar_pnas.svg&quot; alt=&quot;down-sampled heritability estimates&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;First, the down-sampled estimates are roughly symmetric and centered at the full-sample estimate (solid line in the middle). The average down-sampled estimate is 1.17e-5 (se 4.0e-7) and not significantly different from the full-sample estimate of 1.21e-5. &lt;strong&gt;Therefore, the GREML estimate appears to be unbiased in the SKK simulation.&lt;/strong&gt; Second, each down-sampled GREML estimate also computes an approximate 95% confidence interval, and I have plotted that (averaged over 500 runs) with dotted lines. This estimated confidence interval is wider than the empirical 95% interval of down-sampled estimates (blue shaded region). &lt;strong&gt;Therefore, the GREML confidence interval appears to be accurate or mildly conservative in the SKK simulation.&lt;/strong&gt; Lastly, the estimated confidence interval from all 50,000 SNPs is shown in dashed lines. This is the estimate the SKK paper finds to be much lower than the down-sampled variance (red arrows in SKK Fig. 2), and that observation is confirmed here. However, there is no justification given for why the sample variance from a 50k SNP GRM should be compared to the variance of estimates from a 5k SNP GRM. Indeed, the opposite point motivates the SKK paper (“The MLEs produced by GCTA depend on the properties of the GRM matrix”); both the MLE and the likelihood surface is specific to the genetic data that was used. In the context of linear regression (where the dual of the GRM is used) this would be like comparing the standard error of an estimate from 50k individuals to the variance in the estimate from random sub-groups of 5k individuals. The SKK paper demonstrates why this should not be done, but their simulation does not provide evidence of bias in properly computed estimates.&lt;/p&gt;
 
@@ -49,7 +49,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;//images/plot_krishna_kumar_pnas.noninf.svg&quot; alt=&quot;down-sampled heritability estimates&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://sashagusev.github.io/images/plot_krishna_kumar_pnas.noninf.svg&quot; alt=&quot;down-sampled heritability estimates&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Fig. 2 of the SKK paper is bounded at zero. While a variance estimate &amp;lt;0 in real data is un-intuitive, it is important to allow the MLE to go below zero when assessing bias in simulations. In the simplest case where the truth is zero, an estimator that’s bounded at zero will always appear biased. This likely explains the asymmetric distribution observed.&lt;/li&gt;
@@ -130,8 +130,8 @@ cat( &quot;estimate&quot; , reml$h2 , reml$se[1] , &#39;\n&#39; )
 &lt;p&gt;Code to generate the above figures is in &lt;code&gt;plot.R&lt;/code&gt; which assumes &lt;code&gt;sim.out&lt;/code&gt; and &lt;code&gt;run_random.out&lt;/code&gt; both exist.&lt;/p&gt;
 </description>
         <pubDate>Wed, 30 Dec 2015 12:21:14 -0500</pubDate>
-        <link>http://sashagusev.github.io//2015-12/notes-on-GCTA.html</link>
-        <guid isPermaLink="true">http://sashagusev.github.io//2015-12/notes-on-GCTA.html</guid>
+        <link>http://sashagusev.github.io/2015-12/notes-on-GCTA.html</link>
+        <guid isPermaLink="true">http://sashagusev.github.io/2015-12/notes-on-GCTA.html</guid>
         
         
         <category>heritability</category>
