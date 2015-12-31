@@ -5,8 +5,8 @@
     <description></description>
     <link>http://sashagusev.github.io/</link>
     <atom:link href="http://sashagusev.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 31 Dec 2015 14:36:21 -0500</pubDate>
-    <lastBuildDate>Thu, 31 Dec 2015 14:36:21 -0500</lastBuildDate>
+    <pubDate>Thu, 31 Dec 2015 14:42:22 -0500</pubDate>
+    <lastBuildDate>Thu, 31 Dec 2015 14:42:22 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -57,7 +57,7 @@
 
 &lt;h1 id=&quot;simulation-details&quot;&gt;Simulation details&lt;/h1&gt;
 
-&lt;p&gt;The code for this simulation framework has been made available at &lt;a href=&quot;https://github.com/sashagusev/notes/code&quot;&gt;https://github.com/sashagusev/notes/code&lt;/a&gt;. The simulation framework is written in R and divided into three main components which rely on GREML functions I have implemented in the &lt;code&gt;func_reml.R&lt;/code&gt; file. These functions use GCTA-like convergence criteria, and should give nearly identical outputs to running GCTA directly. The workflow is: (1) Generate the full-sample genotypes, GRM, and phenotype and estimate full-sample h2g; (2) Load the data from (1), down-sample to 5,000 SNPs and re-estimate heritability 500 times; (3) Collate and plot the results.&lt;/p&gt;
+&lt;p&gt;The code for this simulation framework has been made available at &lt;a href=&quot;https://github.com/sashagusev/sashagusev.github.io/tree/master/code&quot;&gt;https://github.com/sashagusev/sashagusev.github.io/tree/master/code&lt;/a&gt;. The simulation framework is written in R and divided into three main components which rely on GREML functions I have implemented in the &lt;code&gt;func_reml.R&lt;/code&gt; file. These functions use GCTA-like convergence criteria, and should give nearly identical outputs to running GCTA directly. The workflow is: (1) Generate the full-sample genotypes, GRM, and phenotype and estimate full-sample h2g; (2) Load the data from (1), down-sample to 5,000 SNPs and re-estimate heritability 500 times; (3) Collate and plot the results.&lt;/p&gt;
 
 &lt;h2 id=&quot;full-sample-simulation&quot;&gt;(1) Full-sample simulation&lt;/h2&gt;
 
