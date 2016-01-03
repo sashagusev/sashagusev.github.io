@@ -6,6 +6,9 @@ body {
   color: #333333;
   background-color: #F5F5F5; }
 
+.content li {
+  padding: 10px 0px; }
+
 a {
   color: #828282;
   font-weight: bold;
@@ -20,8 +23,8 @@ img {
   margin: 40px auto;
   padding: 2px;
   display: block;
-  max-width: 100%;
-  border: 1px solid #ccc; }
+  border: 1px solid #ccc;
+  max-width: 100%; }
 
 blockquote {
   letter-spacing: 3px;
@@ -103,7 +106,7 @@ strong {
 /* =Titles */
 .page-title {
   margin-top: 60px;
-  margin-bottom: 125px;
+  margin-bottom: 50px;
   text-align: center; }
 
 .page-title__text {
