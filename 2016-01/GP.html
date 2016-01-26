@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Gaussian process regression —  &raquo;  Notes</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="canonical" href="/2016-01/GP.html">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+
+          
+  
+  
+  
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Gaussian process regression" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="" />
+
+<!-- Google plus -->
+<meta name="author" content="">
+<link rel="author" href="">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gaussian process regression">
+<meta property="og:description" content="">
+<meta property="og:url" content="/2016-01/GP.html">
+<meta property="og:site_name" content="Notes">
+
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://sashagusev.github.io/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="http://sashagusev.github.io/css/main.css">
+<link rel="stylesheet" href="http://sashagusev.github.io/assets/vendor/highlight/styles/hopscotch.css">
+<link rel="stylesheet" href="http://sashagusev.github.io/assets/vendor/font-awesome/css/font-awesome.css">
+
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <header class="header">
+    <div class="navigation">
+        <a href="/" class="logo">Notes</a>
+
+        <ul class="menu">
+            <li class="menu__entry"><a href="http://sashagusev.github.io/about">About</a></li>
+            <li class="menu__entry"><a href="http://sashagusev.github.io/">Blog</a></li>
+        </ul>
+    </div>
+
+    <ul class="social-links">
+        
+            <a href="https://github.com/sashagusev" class="social-links__entry" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+        
+
+        
+    </ul>
+</header>
+
+            <h1 class="page-title post-title">
+    <div class="page-title__text post-title__text">Gaussian process regression</div>
+    <div class="page-title__subtitle post-title__subtitle"></div>
+</h1>
+
+<div class="content">
+    <p>Gaussian process (GP) regression is an interesting and powerful way of thinking about the old regression problem. Given the standard linear model:</p>
+
+<script type="math/tex; mode=display">y = X\beta + \epsilon</script>
+
+<p>where we wish to predict values of y in unlabeled test data, a typical solution is to use labeled training data to learn the <script type="math/tex">\beta</script>s (for example, by finding <script type="math/tex">\beta</script>s that minimize normally distributed residuals) and then apply them to test data to make point predictions. The GP instead describes the <script type="math/tex">y</script>s as arising from functions that have a joint multivariate-Gaussian distribution and learns the underlying mean and variance parameters. The models can be equally descriptive: just as N observations can be perfectly described by N <script type="math/tex">\beta</script>s, they can be perfectly described by N Gaussians (by centering a Gaussian at each observation and fitting a variance). But the GP offers some interesting additional flexibility, with particular relevance to genetics:</p>
+
+<ul>
+  <li>By working in the space of functions instead of <script type="math/tex">\beta</script>s, the GP can express relationships between data and outcome that are intensive or impossible to describe in terms of weights (i.e. infinite functions). The GP defines a prior on the functions (using the kernel) and then allows the available training data to place restrictions on that prior before making predictions. [<em>Aside: this process of restricting the prior and making posterior predictions can also be done iteratively - previous posterior becomes current prior - as more data becomes available.</em>]</li>
+  <li>By working in the space of observations of <script type="math/tex">y</script>, the GP can efficiently express models where the number of predictors is greater than the number of observations (i.e. more SNPs than samples), which would be intractable for the standard linear model. Of course, there are LM solutions involving penalized regression and these have a close relationship to the GP.</li>
+  <li>Making predictions from a distribution instead of a linear combination of point estimates is conceptually appealing and fits well with the Bayesian formalism. The virtue of being Bayesian, like any matters of religion and politics, are probably not best discussed in a blog so I won’t dwell on this and only add that in this case it also coincides with very attractive figures (see below).</li>
+</ul>
+
+<p>I’m going through the <a href="http://www.gaussianprocess.org/gpml/">Rasmussen and Williams 2006</a> book on Gaussian Processes for Machine Learning and wanted to outline here some of the basics of working with this model.</p>
+
+<p><strong>The mathematical model.</strong> At the outset I’ll say that most of this will be paraphrasing Rasmussen and Williams (Chapter 2) with some modifications in notation to match what I’m used to. The code in R is minimal (see details at the end), but borrows greatly from <a href="http://www.jameskeirstead.ca/blog/gaussian-process-regression-with-r/">this implementation</a>.</p>
+
+<p>Continuing from the linear model, we model <script type="math/tex">V = cov(y) = K(X,X) + \sigma_n^2 I</script>, where <script type="math/tex">K</script> is the kernel function describing the difference between observations (for simplicity, assume it’s just some N x N covariance over observations in <script type="math/tex">X</script>) and <script type="math/tex">\sigma_e^2</script> is the variance on the noise. Since our goal is prediction, unlabeled observations, <script type="math/tex">X^*</script>, can be described using the following joint distribution:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{bmatrix} y \\ y_* \end{bmatrix} \sim N(0, \begin{bmatrix} V & K(X,X_*) \\ K(X_*,X) & K(X_*,X_*) \end{bmatrix} ) %]]></script>
+
+<p>The notation is getting heavy but the intuition is that <script type="math/tex">y</script> continues to be modeled by <script type="math/tex">V</script>, and any relationships between <script type="math/tex">y</script> and <script type="math/tex">y_*</script> are modeled through variations on <script type="math/tex">K(X,X_*)</script>. This leads to the following predictive functions given the training data:</p>
+
+<script type="math/tex; mode=display">E[y_* | X,y,X_* ] = K(X_*,X) V^{-1} y</script>
+
+<script type="math/tex; mode=display">cov( y_* ) = K(X_*,X_*) - K(X_*,X) V^{-1} K(X,X_*)</script>
+
+<p>Conceptually, the first equation (i.e. the prediction given the data) takes the testing data, pulls it through the relationship to the training data, and then through the relationship between <script type="math/tex">V^{-1}</script> and <script type="math/tex">y</script>, the observed labels. The variance/covariance of the prediction is not as intuitive to me, but an important point is that it only depends on the similarity of the <script type="math/tex">X</script>s and not at all on the observations (although <script type="math/tex">\sigma^2_e</script>, which may depend on the observations, is still incorporated). These two simple manipulations of the kernel and variance fully capture prediction from the GP, and are all that is necessary for a working GP prediction (all code described at the end):</p>
+
+<pre><code class="language-R">gp_solve = function( x.train , y.train , x.pred , kernel , sigma2e = 0 ) {
+	solution = list()
+	# compute necessary covariances
+	k.xx = kernel(x.train,x.train)
+	k.x_xp = kernel(x.train,x.pred)
+	k.xp_x = kernel(x.pred,x.train)
+	k.xp_xp = kernel(x.pred,x.pred)
+
+	# Invert the covariance matrix with noise
+	Vinv = solve(k.xx + sigma2e * diag(1, ncol(k.xx)))
+	
+	# Compute the prediction
+	solution[["mu"]] = k.xp_x %*% Vinv %*% y.train
+	solution[["var"]] = k.xp_xp - k.xp_x %*% Vinv %*% k.x_xp
+	return( solution )
+}
+</code></pre>
+
+<p>Though I won’t transcribe it here, the fact that everything has been defined in terms of Gaussian distributions means the GP also has an explicit marginal likelihood which empowers us to do formal model comparison and testing. Of note, this is the same likelihood that is used to identify the MLE heritability parameter using GREML.</p>
+
+<p><strong>The Gaussian process in practice.</strong> All of this makes much more sense when looking at how the model handles data. Here, I’ve generated five points from the function <script type="math/tex">y = sin(x) + \epsilon</script> and fit a prediction to these points using the GP. I’ll underscore again that in contrast to the standard (weight-space) regression, I never need to define a linear relationship between the observations <script type="math/tex">y</script> and some combination of <script type="math/tex">x</script>s (i.e. I’m not defining <script type="math/tex">y=sin(x) \beta + \epsilon</script> and looking for a <script type="math/tex">\beta</script>). Instead, I’ve selected a kernel which places a prior on the way observations are related in space (their covariance), allowed the data to constrain the prior, and sampled from the posterior. With more data I get better estimates of the multivariate-Gaussian distribution describing these points, but I don’t explicitly learn the underlying generative function. Below I’ve plotted the mean and confidence interval (2 times the sd) of the GP distribution learned from this data in blue line and blue shading:</p>
+
+<p><img src="http://sashagusev.github.io/images/plot_gp.svg" alt="Gaussian Process Regression" /></p>
+
+<p><em>[Aside: One subtle point that confused me is that the blue fit is not actually being plotted from the generative function with noise the way it is in a standard linear model. Rather, these lines represent draws of predicted values and their corresponding precision from the GP. This underscores the fact that the GP can model functions with infinite weights that are impossible to infer directly.]</em></p>
+
+<p>This figure illustrates an attractive practical consequence of the GP estimating the posterior distribution: flexible confidence intervals. We don’t get just a uniform band around the mean prediction, but intervals that vary with the data. This is specifically demonstrated by the three points to the right of origin, which place a much stronger constraint on the posterior than the two points to the left. An alternative way of seeing this is that there are many more consistent functions that lie between the points on the left. This also leads to a natural way for an online algorithm to sample future points from the parts of the space that are most uncertain (for example, in the case where generating observations is very expensive).</p>
+
+<p><strong>Kernels</strong>. Up until this point I’ve avoided talking about the <script type="math/tex">K</script>s that are used in the GP. These functions define how the <script type="math/tex">X</script>s are related to one another and have to follow certain distance-like rules: they must be symmetric; identical <script type="math/tex">X1,X2</script> values must have <script type="math/tex">K(X1,X2) = 0</script>; see more rules in <a href="http://gpss.cc/gpss15/talks/KernelDesign.pdf">this talk</a>. The kernels describe how nearby points contribute to the covariance of the outcomes, and they allow the same underlying GP machinery to flexibly use different data priors. Again, the best way to understand this is to see the output, so I’ve defined a few kernels:</p>
+
+<pre><code class="language-R"># this is pseudocode, see iteration in code at the end
+
+# Exponential kernel
+Sigma[i,j] &lt;- exp(-1*(abs(x1[i]-x2[j])))
+
+# Brownian kernel
+Sigma[i,j] &lt;- min(x1[i],x2[j])
+
+# Gaussian kernel
+Sigma[i,j] &lt;- exp(-0.5*(x1[i]-x2[j])^2)
+</code></pre>
+
+<p>Note that each kernel is a very simple function that relates pairs of points. Below, I’ve fit these kernels to the previous points and plotted the results:</p>
+
+<p><img src="http://sashagusev.github.io/images/plot_gp_multi_sin.svg" alt="GP fit with multiple kernels" /></p>
+
+<p>There are a few interesting observations here. First, the trusty univariate regression can be captured in the GP using a linear kernel.</p>
+
+<p>[<em>Aside: One may assume that the linear kernel will still have the pretty non-linear confidence intervals, but the shape of the variance follows the shape of the kernel. I imagine there can be situations where the generative model is linear, but points are drawn non-uniformly from X and the Gaussian kernel is preferred for more flexible confidence intervals.</em>]</p>
+
+<p>Second, different kernels can yield very different distributions but tend to follow the principle that more data == more precision. Third, the kernel that’s closest to the generative model - in this case <script type="math/tex">sin(x)</script> - fits the data best.</p>
+
+<p>Let’s see how each kernel deals with data that is instead sampled from a linear function <script type="math/tex">y = x + \epsilon</script>:</p>
+
+<p><img src="http://sashagusev.github.io/images/plot_gp_multi_linear.svg" alt="GP fit of linear data with multiple kernels" /></p>
+
+<p>Somewhat surprisingly, the complex kernels still do a pretty good job of fitting the linear function in parts of the space that have labelled observations. On the other hand, where data has not been observed (-4 &gt; X &gt; 4) the confidence intervals quickly expand and the prediction reverts to the prior implied by the kernel. This is even mildly true for the linear kernel, which raises an important point that the GP is not a magic bullet. If we knew that the data was really coming from a simple linear function of X, then the boring OLS - with it’s frumpy uniform confidence intervals - is exactly what we would want. That would give us great, confident predictions at x = 1,000 where the linear GP has never seen labelled data and would be highly uncertain. This is probably obvious, but model flexibility is only valuable if the underlying data necessitates it.</p>
+
+<p><strong>Closing thoughts</strong>. I’m still learning and this is all just scratching the surface of what can be done with the Gaussian process framework. The underlying model can be extended to have multiple outcomes with specific covariance structure (e.g. time series or correlated phenotypes); multiple GPs placing individual priors on partitions of the feature space; approximations to non-Gaussian outputs (e.g. poisson processes or binary classification); and apparently an entire language of kernel functions. In a future post, I’ll attempt to draw explicit connections between this model and work in genetics and consider relevant extensions.</p>
+
+<p>I’ve been negligent about citations here, but much good reading on this topic is openly available on the <a href="www.gaussianprocess.org">gaussianprocess.org web-site</a>, the <a href="http://www.gaussianprocess.org/gpml/chapters/">GPML book</a>, and the Gaussian Process Summer Schools <a href="http://gpss.cc/gpss15/">lectures</a>. Useful applied examples are also available with the Python <a href="http://nbviewer.jupyter.org/github/SheffieldML/notebook/blob/master/GPy/index.ipynb">GPy</a> and <a href="http://scikit-learn.org/stable/modules/gaussian_process.html">scikit - GPML</a> libraries.</p>
+
+<h2 id="code">Code</h2>
+
+<p>The full code to solve a GP regression and generate all figures in this post is available in this Gist:</p>
+
+<p><a href="https://gist.github.com/sashagusev/c9287f488cd65c3ede9e">https://gist.github.com/sashagusev/c9287f488cd65c3ede9e</a></p>
+
+</div>
+
+<div class="about">
+    <div class="about__devider">*****</div>
+    <div class="about__text">
+        Written by <strong>  Sasha Gusev </strong>
+        on <strong>24 January 2016</strong>
+    </div>
+</div>
+
+
+        </div>
+
+        <script src="http://sashagusev.github.io/assets/vendor/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+        
+    </body>
+</html>
