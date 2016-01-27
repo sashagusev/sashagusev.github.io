@@ -80,7 +80,7 @@
 <ul>
   <li>By working in the space of functions instead of <script type="math/tex">\beta</script>s, the GP can express relationships between data and outcome that are intensive or impossible to describe in terms of weights (i.e. infinite functions). The GP defines a prior on the functions (using the kernel) and then allows the available training data to place restrictions on that prior before making predictions. [<em>Aside: this process of restricting the prior and making posterior predictions can also be done iteratively - previous posterior becomes current prior - as more data becomes available.</em>]</li>
   <li>By working in the space of observations of <script type="math/tex">y</script>, the GP can efficiently express models where the number of predictors is greater than the number of observations (i.e. more SNPs than samples), which would be intractable for the standard linear model. Of course, there are LM solutions involving penalized regression and these have a close relationship to the GP.</li>
-  <li>Making predictions from a distribution instead of a linear combination of point estimates is conceptually appealing and fits well with the Bayesian formalism. The virtue of being Bayesian, like any matters of religion and politics, are probably not best discussed in a blog so I won’t dwell on this and only add that in this case it also coincides with very attractive figures (see below).</li>
+  <li>Making predictions from a distribution instead of a linear combination of point estimates is conceptually appealing and fits well with the Bayesian formalism. The virtue of being Bayesian, like any matters of religion and politics, are probably not best discussed in a blog so I’ll only add here it also coincides with very attractive figures (see below).</li>
 </ul>
 
 <p>I’m going through the <a href="http://www.gaussianprocess.org/gpml/">Rasmussen and Williams 2006</a> book on Gaussian Processes for Machine Learning and wanted to outline here some of the basics of working with this model.</p>
@@ -177,6 +177,21 @@ Sigma[i,j] &lt;- exp(-0.5*(x1[i]-x2[j])^2)
         on <strong>24 January 2016</strong>
     </div>
 </div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'sashagusev';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 
         </div>
