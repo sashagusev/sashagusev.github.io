@@ -2,12 +2,16 @@
 /* =Colors */
 /* =Base */
 body {
-  font-family: "Inconsolata";
+  font-family: 'Inconsolata';
   color: #333333;
   background-color: #F5F5F5; }
 
+tr, td {
+  padding: 5px; }
+
 .content li {
-  padding: 10px 0px; }
+  padding: 10px 0px;
+  line-height: 20px; }
 
 a {
   color: #828282;
@@ -75,6 +79,7 @@ strong {
   float: left; }
 
 .logo {
+  font-family: 'Montserrat';
   font-size: 50px;
   font-weight: 700;
   color: #333333;
@@ -108,14 +113,18 @@ strong {
   margin-left: 10px; }
 
 /* =Titles */
+h1 {
+  font-family: 'Montserrat'; }
+
 .page-title {
+  font-family: 'Montserrat';
   margin-top: 60px;
   margin-bottom: 50px;
-  text-align: center; }
+  text-align: left; }
 
 .page-title__text {
   font-weight: 700;
-  font-size: 70px; }
+  font-size: 40px; }
 
 .page-title__subtitle {
   font-weight: 400;
@@ -123,10 +132,11 @@ strong {
   color: #828282; }
 
 .post-title {
-  margin-bottom: 60px; }
+  font-family: 'Montserrat';
+  margin-bottom: 30px; }
 
 .post-title__text {
-  font-size: 40px; }
+  font-size: 30px; }
 
 .post-title__subtitle {
   font-size: 20px; }
