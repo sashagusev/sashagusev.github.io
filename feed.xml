@@ -5,21 +5,41 @@
     <description>scientist</description>
     <link>http://sashagusev.github.io/</link>
     <atom:link href="http://sashagusev.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 04 Feb 2016 16:59:41 -0500</pubDate>
-    <lastBuildDate>Thu, 04 Feb 2016 16:59:41 -0500</lastBuildDate>
+    <pubDate>Sat, 13 Feb 2016 00:06:25 -0500</pubDate>
+    <lastBuildDate>Sat, 13 Feb 2016 00:06:25 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
-        <title>Quick Takes: Interesting Papers from January</title>
+        <title>Our paper on transcriptome-wide association</title>
+        <description>&lt;p&gt;Our paper on “&lt;a href=&quot;http://www.nature.com/ng/journal/vaop/ncurrent/full/ng.3506.html&quot;&gt;Integrative approaches for large-scale transcriptome-wide association studies&lt;/a&gt;” is now out in Nature Genetics and I’m very proud of all the work that went into this by many people involved. Though the paper focuses on gene expression, I believe it’s addressing a broad challenge of integrating complex data with disease GWAS. Our goal here was to understand and quantify the transcriptional component of disease: which genes harbor mutations that effect expression which in turn effects phenotype. Ideally we would do this using a large cohort which had measured genetics/SNPs, and phenotype (ex: BMI), and rich expression data (ex: gene expression painstakingly collected from relevant adipose tissue). With these pieces in hand, we could associate expression with BMI to find potential causal genes, or look at fancier models involving genetic correlation/mediation to isolate the shared genetics. Unfortunately what we typically have is SNPs and expression measured in a small study, and - separately - SNPs and phenotype measured in a large GWAS for which only the summary data is available. Our paper proposes a solution based on two key insights:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;We can leverage the fact that SNPs are observed in both studies and predict expression from one study into the other. In practice, if we restrict to the cis locus this prediction is very accurate, and we can essentially work with the predicted expression as if we had measured it directly. This is in strong contrast to genomweide disease prediction where hundreds of thousands of samples are often still not enough to get traction.&lt;/li&gt;
+  &lt;li&gt;In the special case where this is a linear predictor (that is, a sum of SNPs multiplied by weights) we can additionally use the fact that the relationship between SNPs (LD) is well-estimated in reference panels and infer what the predicted expression-phenotype association &lt;em&gt;would&lt;/em&gt; be by only using the separately estimated relationships between (a) expression-SNP, (b) SNP-SNP/LD, and (c) SNP-phenotype. This sounds intuitive but it’s a powerful concept that allows one to do many very useful things with just summary data and LD (including estimate heritability, perform conditional analysis, and impute untyped variants).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We call this a TWAS (transcriptome-wide association study), emphasizing the fact that it identifies expression-disease associations at the scale of the largest GWAS study. This approach is conceptually very appealing because the model always aggregates the cis effects into a single unit corresponding to the gene. So whether we are fine-mapping known regions associated with disease or looking for novel associations we always identify likely genes. This is quite different from a GWAS, which picks out a set of SNPs (where the mechanism is often ambiguous); or eQTL-based analyses, which require ad hoc decisions on which eQTLs to select and how to overlap them with the disease. Of course, we also show that the method is substantially more powerful than other approaches when the model assumptions are met so there’s a practical relevance here: you find new associations, and those new associations have biological meaning. There’s a lot more going on in the paper that I hope readers find interesting, but the big takeaway is that we can use computational tools to get at the biological information we wish we had even when it’s scattered across different, seemingly isolated datasets.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
+        <link>http://sashagusev.github.io/2016-02/TWAS.html</link>
+        <guid isPermaLink="true">http://sashagusev.github.io/2016-02/TWAS.html</guid>
+        
+        
+        <category>self-promotion</category>
+        
+      </item>
+    
+      <item>
+        <title>Hot takes: interesting papers from January</title>
         <description>&lt;p&gt;&lt;em&gt;Intriguing papers that were published in the previous month, with highlights.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;heritability&quot;&gt;Heritability&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;The contribution of rare variation to prostate cancer heritability, Mancuso et al. Nat Genet&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/ng/journal/v48/n1/full/ng.3446.html&quot;&gt;The contribution of rare variation to prostate cancer heritability, Mancuso et al. Nat Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;“Our finding that 42% (95% confidence interval = 21–63%) of the genetic risk for prostate cancer is due to variants in the MAF range of 0.1–1% is striking, given that only a couple percent of neutral varia- tion is due to SNPs in this frequency range.”&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Abundant contribution of short tandem repeats to gene expression variation in humans, Gymrek et al. Nat Genet&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/ng/journal/v48/n1/abs/ng.3461.html&quot;&gt;Abundant contribution of short tandem repeats to gene expression variation in humans, Gymrek et al. Nat Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;“We used variance partitioning to disentangle the contribution of eSTRs from that of linked SNPs and indels and found that eSTRs contribute 10–15% of the cis heritability [of expression] mediated by all common variants.”&lt;/p&gt;
 
@@ -27,17 +47,17 @@
 
 &lt;h2 id=&quot;population-genetics&quot;&gt;Population genetics&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Genomic Signatures of Selective Pressures and Introgression from Archaic Hominids at Human Innate Immunity Genes, Deschamps et al. AJHG&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.cell.com/ajhg/abstract/S0002-9297(15)00485-1&quot;&gt;Genomic Signatures of Selective Pressures and Introgression from Archaic Hominids at Human Innate Immunity Genes, Deschamps et al. AJHG&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;“Using full-genome sequence variation from the 1000 Genomes Project, we first show that innate immunity genes have globally evolved under stronger purifying selection than the remainder of protein-coding genes … Finally, we show that innate immunity genes present higher Neandertal intro- gression than the remainder of the coding genome.”&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Visualizing spatial population structure with estimated effective migration surfaces, Petkova et al. Nat Genet&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/ng/journal/v48/n1/full/ng.3464.html&quot;&gt;Visualizing spatial population structure with estimated effective migration surfaces, Petkova et al. Nat Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;“EEMS is a new method for analyzing population structure from geo-referenced genetic samples. EEMS produces an intuitive visual representation of spatial patterns in genetic variation and highlights regions of higher-than-average and lower-than-average historical gene flow.”&lt;/p&gt;
 
 &lt;p&gt;“Distance matrices based on rare SNPs could also provide insights into more recent dispersal history…”&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;A Spatial Framework for Understanding Population Structure and Admixture, Bradbury et al. PLOS Gen&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005703&quot;&gt;A Spatial Framework for Understanding Population Structure and Admixture, Bradburd et al. PLOS Gen&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;“We use genome-wide polymorphism data to build “geo- genetic maps,” which, when applied to stationary populations, produces a map of the geo- graphic positions of the populations, but with distances distorted to reflect historical rates of gene flow.”&lt;/p&gt;
 
@@ -47,13 +67,13 @@
 
 &lt;h2 id=&quot;gene-expression&quot;&gt;Gene Expression&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Genetic Variation, Not Cell Type of Origin, Underlies the Majority of Identifiable Regulatory Differences in iPSCs, Burrows et al. PLOS Gen&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005793&quot;&gt;Genetic Variation, Not Cell Type of Origin, Underlies the Majority of Identifiable Regulatory Differences in iPSCs, Burrows et al. PLOS Gen&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;“We show that the cell type of origin only minimally affects gene expression levels and DNA methylation in iPSCs (induced pluripotent stem cells), and that genetic variation is the main driver of regulatory differences between iPSCs of different donors. Our findings suggest that studies using iPSCs should focus on additional individuals rather than clones from the same individual.”&lt;/p&gt;
 
 &lt;h2 id=&quot;gwas&quot;&gt;GWAS&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Leveraging Genomic Annotations and Pleiotropic Enrichment for Improved Replication Rates in Schizophrenia GWAS, Wang et al. PLOS Gen&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005803&quot;&gt;Leveraging Genomic Annotations and Pleiotropic Enrichment for Improved Replication Rates in Schizophrenia GWAS, Wang et al. PLOS Gen&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;“We have presented a novel algorithm, called CM3, which provides more accurate estimates of predicted replication probabilities for each SNP in a GWAS. Sorting SNPs based on predicted finite-sample replication probabilities incorporating auxiliary information, rather than by nominal p-values, yields a larger number of SNPs for a given replication threshold.”&lt;/p&gt;
 
@@ -61,7 +81,7 @@
 
 &lt;h2 id=&quot;big-data&quot;&gt;Big Data&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Genotype Imputation with Millions of Reference Samples, Browning &amp;amp; Browning AJHG&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.cell.com/ajhg/references/S0002-9297(15)00491-7&quot;&gt;Genotype Imputation with Millions of Reference Samples, Browning &amp;amp; Browning AJHG&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;“We demonstrate that Beagle v.4.1 scales to much larger reference panels [than IMPUTE or Minimac] by performing imputation from a simulated reference panel having 5 million samples”&lt;/p&gt;
 
@@ -69,7 +89,7 @@
 
 &lt;p&gt;“With a reference panel containing 200,000 simulated European individuals, we find that markers with at least nine copies of the minor allele in the reference panel can be imputed with high accuracy (r2 &amp;gt; 0.8) in target samples that have been genotyped with a 1M SNP array.”&lt;/p&gt;
 </description>
-        <pubDate>Thu, 04 Feb 2016 14:35:00 -0500</pubDate>
+        <pubDate>Thu, 04 Feb 2016 00:00:00 -0500</pubDate>
         <link>http://sashagusev.github.io/2016-02/papers.html</link>
         <guid isPermaLink="true">http://sashagusev.github.io/2016-02/papers.html</guid>
         
@@ -177,7 +197,7 @@ Sigma[i,j] &amp;lt;- exp(-0.5*(x1[i]-x2[j])^2)
 
 &lt;p&gt;&lt;a href=&quot;https://gist.github.com/sashagusev/c9287f488cd65c3ede9e&quot;&gt;https://gist.github.com/sashagusev/c9287f488cd65c3ede9e&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sun, 24 Jan 2016 14:35:00 -0500</pubDate>
+        <pubDate>Sun, 24 Jan 2016 00:00:00 -0500</pubDate>
         <link>http://sashagusev.github.io/2016-01/GP.html</link>
         <guid isPermaLink="true">http://sashagusev.github.io/2016-01/GP.html</guid>
         
@@ -253,7 +273,7 @@ Sigma[i,j] &amp;lt;- exp(-0.5*(x1[i]-x2[j])^2)
   &lt;li&gt;run_rel_typed.R / plot_typed.R : Slight changes to the above scripts to remove any untyped SNPs, generating the second figure in this post.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Sat, 02 Jan 2016 12:21:14 -0500</pubDate>
+        <pubDate>Sat, 02 Jan 2016 00:00:00 -0500</pubDate>
         <link>http://sashagusev.github.io/2016-01/notes-on-GCTA2.html</link>
         <guid isPermaLink="true">http://sashagusev.github.io/2016-01/notes-on-GCTA2.html</guid>
         
@@ -384,7 +404,7 @@ cat( &quot;estimate&quot; , reml$h2 , reml$se[1] , &#39;\n&#39; )
 
 &lt;p&gt;Code to generate the above figures is in &lt;code&gt;plot.R&lt;/code&gt; which assumes &lt;code&gt;sim.out&lt;/code&gt; and &lt;code&gt;run_random.out&lt;/code&gt; both exist.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 30 Dec 2015 12:21:14 -0500</pubDate>
+        <pubDate>Wed, 30 Dec 2015 00:00:00 -0500</pubDate>
         <link>http://sashagusev.github.io/2015-12/notes-on-GCTA.html</link>
         <guid isPermaLink="true">http://sashagusev.github.io/2015-12/notes-on-GCTA.html</guid>
         
