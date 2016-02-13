@@ -5,8 +5,8 @@
     <description>scientist</description>
     <link>http://sashagusev.github.io/</link>
     <atom:link href="http://sashagusev.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 13 Feb 2016 00:06:25 -0500</pubDate>
-    <lastBuildDate>Sat, 13 Feb 2016 00:06:25 -0500</lastBuildDate>
+    <pubDate>Sat, 13 Feb 2016 00:08:36 -0500</pubDate>
+    <lastBuildDate>Sat, 13 Feb 2016 00:08:36 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -20,7 +20,7 @@
 
 &lt;p&gt;We call this a TWAS (transcriptome-wide association study), emphasizing the fact that it identifies expression-disease associations at the scale of the largest GWAS study. This approach is conceptually very appealing because the model always aggregates the cis effects into a single unit corresponding to the gene. So whether we are fine-mapping known regions associated with disease or looking for novel associations we always identify likely genes. This is quite different from a GWAS, which picks out a set of SNPs (where the mechanism is often ambiguous); or eQTL-based analyses, which require ad hoc decisions on which eQTLs to select and how to overlap them with the disease. Of course, we also show that the method is substantially more powerful than other approaches when the model assumptions are met so there’s a practical relevance here: you find new associations, and those new associations have biological meaning. There’s a lot more going on in the paper that I hope readers find interesting, but the big takeaway is that we can use computational tools to get at the biological information we wish we had even when it’s scattered across different, seemingly isolated datasets.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
+        <pubDate>Sat, 13 Feb 2016 00:00:00 -0500</pubDate>
         <link>http://sashagusev.github.io/2016-02/TWAS.html</link>
         <guid isPermaLink="true">http://sashagusev.github.io/2016-02/TWAS.html</guid>
         
