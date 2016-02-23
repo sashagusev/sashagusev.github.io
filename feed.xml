@@ -5,9 +5,44 @@
     <description>scientist</description>
     <link>http://sashagusev.github.io/</link>
     <atom:link href="http://sashagusev.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 13 Feb 2016 00:08:36 -0500</pubDate>
-    <lastBuildDate>Sat, 13 Feb 2016 00:08:36 -0500</lastBuildDate>
+    <pubDate>Tue, 23 Feb 2016 01:19:07 -0500</pubDate>
+    <lastBuildDate>Tue, 23 Feb 2016 01:19:07 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Even more on &#39;Limitations of GCTA&#39;</title>
+        <description>&lt;p&gt;The discussion of “Limitations of GCTA…” has now grown to three articles and I encourage readers interested in the mechanics of this model to read each of them:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://biorxiv.org/content/early/2016/01/20/036574&quot;&gt;Yang et al, “Commentary on ‘Limitations of GCTA’”&lt;/a&gt;, rebutting all empirical claims in the original manuscript.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://biorxiv.org/content/early/2016/02/17/039594&quot;&gt;Krishna-Kumar et al, “Response to Commentary”&lt;/a&gt;, reiterating all empirical claims in the original manuscript and looking at additional datasets.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://biorxiv.org/content/early/2016/02/18/040055&quot;&gt;Gamazon and Park, “SNP-based heritability estimation”&lt;/a&gt;, rebutting the fundamental mathematical claim in the original manuscript.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I greatly appreciate the passion that SK have shown in thinking and writing about this issue critically and from multiple different perspectives. However, my previous skepticism stands: there is no conclusive theoretical result showing that GCTA is biased when model assumptions are met, and the empirical results are confounded by relatedness. On the first point, I fear turning this into a pile-on so I’ll leave my thoughts below the fold for those interested in the boring details. On the second point, the authors have confirmed that they indeed included genetically related individuals and moved on to a new dataset (which is of mixed ancestry, introducing a host of additional complexities).&lt;/p&gt;
+
+&lt;p&gt;This exchange also highlights the ups and downs of non-peer-reviewed/immediate pre-prints. On the one hand, it’s awesome that this discussion is going on in a rapid, unfiltered way so geeks like myself can dig into the details as they emerge. On the other hand, having an un-answered commentary immediately go on-line places a tremendous amount of pressure on the other party to respond, which, coupled with lack of formal peer-review means the ideas are not always fully-formed. (&lt;em&gt;and yes I see the irony of complaining about not fully-formed ideas in a personal blog&lt;/em&gt;). One possible advantage that pre-prints offer over the traditional commentary format is that the authors can spend several rounds hammering out differences internally and then release a more coherent point/counter-point. I think that’s something that would help resolve the ongoing tension and open questions here.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;PS: Bias in REML estimates when assumptions are met&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The main disagreement stems from lack of clarity on what it means for REML assumptions to be met. Strictly speaking, &lt;strong&gt;REML makes only one assumption&lt;/strong&gt;: that the phenotype is drawn from a multivariate-normal distribution with mean equal to zero and variance equal to the weighted sum of genetic relatedness matrix (GRM) and a residual. REML is then used to fit the &lt;script type=&quot;math/tex&quot;&gt;h^2_g&lt;/script&gt; parameter that maximizes the likelihood in this model. Note that no additional assumptions about the disease architecture, effect-sizes, LD, or relatedness have been made. Indeed, it is the &lt;em&gt;interpretation&lt;/em&gt; of this parameter that requires additional assumptions.&lt;/p&gt;
+
+&lt;p&gt;Under the standard assumption that causal effect-sizes (&lt;script type=&quot;math/tex&quot;&gt;\beta&lt;/script&gt;) are i.i.d (with Gaussian residuals) and all variables were standardized, this parameter corresponds to &lt;script type=&quot;math/tex&quot;&gt;E[h^2_g] = \sum_j{\beta_j^2}&lt;/script&gt; across SNPs &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt; typed in the GRM. Again, no assumptions are made about LD, but the disease architecture is now constrained to have uncorrelated effects. [&lt;em&gt;In the Gaussian Process formalism, this is equivalent to having a weak prior that all SNPs are causal and then letting the data shrink the causal effects/functions.&lt;/em&gt;] Recall that relatedness violates this assumption by inducing correlated effect sizes.&lt;/p&gt;
+
+&lt;p&gt;Under the very strict (and rarely applied) assumption that the GRM from typed SNPs is an unbiased estimator of the relatedness at all SNPs, this parameter further corresponds to the total heritability (&lt;script type=&quot;math/tex&quot;&gt;E[h^2_g] = h^2&lt;/script&gt;). The SK response treats this last assumption as a requirement for the model, but it is in fact only a requirement for the &lt;em&gt;interpretation&lt;/em&gt; of the quantity being estimated. According to SK, &lt;script type=&quot;math/tex&quot;&gt;h^2_g&lt;/script&gt; must correspond to &lt;script type=&quot;math/tex&quot;&gt;h^2&lt;/script&gt;, and they trivially show that this can be violated (for example by estimating from different chromosomes).&lt;/p&gt;
+
+&lt;p&gt;However, GCTA never makes this assumption, and SK haven’t demonstrated that the alternative definition &lt;script type=&quot;math/tex&quot;&gt;E[h^2_g] = \sum{\beta^2}&lt;/script&gt; is invalid. In my opinion, defining &lt;script type=&quot;math/tex&quot;&gt;h^2_g&lt;/script&gt; such that it is trivially biased and ignoring an alternative, unbiased definition is not very illuminating. Moreover, I find the GCTA interpretation highly useful precisely &lt;em&gt;because&lt;/em&gt; it differs from the pedigree-based &lt;script type=&quot;math/tex&quot;&gt;h^2&lt;/script&gt; quantity and estimates a meaningful property of a specific set of variants.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 23 Feb 2016 00:00:00 -0500</pubDate>
+        <link>http://sashagusev.github.io/2016-02/SK-response.html</link>
+        <guid isPermaLink="true">http://sashagusev.github.io/2016-02/SK-response.html</guid>
+        
+        
+        <category>heritability</category>
+        
+      </item>
     
       <item>
         <title>Our paper on transcriptome-wide association</title>
