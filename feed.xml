@@ -5,9 +5,78 @@
     <description>scientist</description>
     <link>http://sashagusev.github.io/</link>
     <atom:link href="http://sashagusev.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 23 Feb 2016 01:19:07 -0500</pubDate>
-    <lastBuildDate>Tue, 23 Feb 2016 01:19:07 -0500</lastBuildDate>
+    <pubDate>Wed, 02 Mar 2016 09:56:10 -0500</pubDate>
+    <lastBuildDate>Wed, 02 Mar 2016 09:56:10 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Hot takes: interesting papers from Feb</title>
+        <description>&lt;p&gt;&lt;em&gt;Intriguing papers that were published in the previous month, with highlights.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;functional-annotation&quot;&gt;Functional annotation&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://journals.plos.org/plosgenetics/article?id=10.1371%2Fjournal.pgen.1005875&quot;&gt;Which Genetics Variants in DNase-Seq Footprints Are More Likely to Alter Binding?, Moyerbrailean et al. PLOS Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Here, we integrated DNaseI footprinting data with sequence-based transcription factor (TF) motif models to predict the impact of a genetic variant on TF binding across 153 tissues and 1,372 TF motifs … As an example, the enrichment for LDL level-associated SNPs is 9.1-fold higher among SNPs predicted to affect HNF4 binding sites than in a background model already including tissue-specific annotation.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/ng/journal/v48/n3/full/ng.3507.html&quot;&gt;Weighting sequence variants based on their annotation increases power of whole-genome association studies, Sveinbjornsson et al. Nat Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Functional annotations can be used to improve power to detect associations. To increase power by incorporating the information that these annotations hold, we suggest a weighting scheme based on the observed enrichment using a weighted Bonferroni correction similar to that suggested by Roeder et al. for linkage analysis … we note that the number of significant signals using the enrichments as weights (n = 166) was not far from being optimal (n = 185), and this approach had more power than the standard Bonferroni method (n = 146) to detect associations … The commonly accepted P = 5 × 10^−8 threshold is outdated and will not be applicable in future GWAS.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/ng/journal/v48/n2/full/ng.3477.html&quot;&gt;A spectral approach integrating functional genomic annotations for coding and noncoding variants, Ionita-Laza et al. Nat Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Here we develop an unsupervised approach to integrate these different annotations into one measure of functional importance that, unlike most existing methods, is not based on any labeled training data. We show that the resulting meta-score has better discriminatory ability using disease-associated and putatively benign variants from published studies (in both coding and noncoding regions) than the recently proposed CADD score.”&lt;/p&gt;
+
+&lt;h2 id=&quot;gene-expression&quot;&gt;Gene expression&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.cell.com/ajhg/abstract/S0002-9297(16)00004-5&quot;&gt;A Burden of Rare Variants Associated with Extremes of Gene Expression in Human Peripheral Blood, Zhao et al. AJHG&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“After sequencing 2-kb promoter regions of 472 genes in 410 healthy adults, we performed a quadratic regression of rare variant count on bins of peripheral blood transcript abundance from microarrays. The overall burden test results are consistent with rare and private regulatory variants driving high or low transcription at specific loci, potentially contributing to disease.”&lt;/p&gt;
+
+&lt;h2 id=&quot;gwas&quot;&gt;GWAS&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://journals.plos.org/plosgenetics/article?id=10.1371%2Fjournal.pgen.1005765&quot;&gt;G = E: What GWAS Can Tell Us about the Environment, Gage et al. PLOS Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“as large, richly phenotyped cohort studies (e.g., UK Biobank) emerge, it will become possible to identify modifiable exposures from genetic data and to dissect those pathways within the same cohort … A failure to appreciate this point will hamper our ability to translate the results of GWAS into health benefits, by focusing attention on possible biological pathways when, in fact, the target for intervention could be a modifiable environmental or behavioural exposure.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/nature/journal/v530/n7589/full/nature16549.html&quot;&gt;Schizophrenia risk from complex variation of complement component 4, Sekar et al. Nature&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Schizophrenia’s strongest genetic association at a population level involves variation in the major histocompatibility complex (MHC) locus, but the genes and molecular mechanisms accounting for this have been challenging to identify. Here we show that this association arises in part from many structurally diverse alleles of the complement component 4 (C4) genes … These results implicate excessive complement activity in the development of schizophrenia and may help explain the reduced numbers of synapses in the brains of individuals with schizophrenia.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.cell.com/ajhg/fulltext/S0002-9297(15)00514-5&quot;&gt;A Robust Example of Collider Bias in a Genetic Association Study, Day et al. AJHG&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“In summary, we have demonstrated that adjusting for causally associated covariates can create apparently highly robust, but actually biologically spurious, associations. The extent of this collider bias is almost perfectly inversely related to the strength of the exposure-collider association. Consideration of causal inference modeling and unadjusted test statistics is therefore of great importance in the design and interpretation of genetic (and non-genetic1) association studies.”&lt;/p&gt;
+
+&lt;h2 id=&quot;popgen&quot;&gt;Popgen&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/nature/journal/v530/n7591/full/nature16544.html&quot;&gt;Ancient gene flow from early modern humans into Eastern Neanderthals, Kuhlwilm et al. Nature&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“We conclude that in addition to later interbreeding events, the ancestors of Neanderthals from the Altai Mountains and early modern humans met and interbred, possibly in the Near East, many thousands of years earlier than previously thought.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://science.sciencemag.org/content/351/6275/aaf3945&quot;&gt;Erratum for the Report “Ancient Ethiopian genome reveals extensive Eurasian admixture in Eastern Africa”, Gallego et al. Science&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“A script necessary to convert the input produced by samtools v0.1.19 to be compatible with PLINK was not run when merging the ancient genome, Mota, with the contemporary populations SNP panel, leading to homozygote positions to the human reference genome being dropped as missing data (the analysis of admixture with Neandertals and Denisovans was not affected) … the geographic extent of the genetic impact of this migration was overestimated: The Western Eurasian backflow mostly affected East Africa and only a few Sub-Saharan populations; the Yoruba and Mbuti do not show higher levels of Western Eurasian ancestry compared to Mota.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.cell.com/ajhg/fulltext/S0002-9297(16)00011-2&quot;&gt;The Kalash Genetic Isolate? The Evidence for Recent Admixture, Hellenthal et al. AJHG&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“These observations indicate that, contrary to the claim of Ayub et al. that the ancestors of the Kalash have been isolated from the ancestors of other extant populations for over 8,000 years, there is in fact strong evidence that they have not been isolated over this time frame.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://genome.cshlp.org/content/26/3/279.full&quot;&gt;Whole-genome sequence analyses of Western Central African Pygmy hunter-gatherers reveal a complex demographic history and identify candidate genes under positive natural selection, Hsieh et al. Gen Res&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“we sequenced the genomes of four Biaka Pygmies … we fit models using the joint allele frequency spectrum … Our two best-fit models both suggest ancient divergence between the ancestors of the farmers and Pygmies, 90,000 or 150,000 yr ago.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://genome.cshlp.org/content/26/3/291.full&quot;&gt;Model-based analyses of whole-genome data reveal a complex evolutionary history involving archaic introgression in Central African Pygmies, Hsieh et al. Gen Res&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Our inference method rejects the hypothesis that the ancestors of [anatomically modern humans] were genetically isolated in Africa, thus providing the first whole genome-level evidence of African archaic admixture. Our inferences also suggest a complex human evolutionary history in Africa, which involves at least a single admixture event from an unknown archaic population into the ancestors of AMH, likely within the last 30,000 yr.”&lt;/p&gt;
+</description>
+        <pubDate>Tue, 01 Mar 2016 00:00:00 -0500</pubDate>
+        <link>http://sashagusev.github.io/2016-03/papers.html</link>
+        <guid isPermaLink="true">http://sashagusev.github.io/2016-03/papers.html</guid>
+        
+        
+        <category>papers</category>
+        
+      </item>
     
       <item>
         <title>Even more on &#39;Limitations of GCTA&#39;</title>
