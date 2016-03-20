@@ -5,9 +5,71 @@
     <description>scientist</description>
     <link>http://sashagusev.github.io/</link>
     <atom:link href="http://sashagusev.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 02 Mar 2016 09:56:10 -0500</pubDate>
-    <lastBuildDate>Wed, 02 Mar 2016 09:56:10 -0500</lastBuildDate>
+    <pubDate>Sun, 20 Mar 2016 01:22:57 -0400</pubDate>
+    <lastBuildDate>Sun, 20 Mar 2016 01:22:57 -0400</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>A causal mechanisms cookbook</title>
+        <description>&lt;p&gt;A few years back I saw a talk by &lt;a href=&quot;http://www.cotsapaslab.info/&quot;&gt;Chris Cotsapas&lt;/a&gt; drawing a comparison between performing genomewide association studies (GWAS) and putting together a parts list before figuring out how to fix a broken car. This analogy contextualizes the role of GWAS as necessary and crucial, but also highlights where the real payoff is - using the parts list to identify specific mechanisms. Since then, GWAS has identified thousands of parts, and in the past year we have started to see how those parts fit into the larger complex disease machine. Two recent studies - one from last month looking at schizophrenia and one from last year looking at obesity - start with GWAS loci and end with specific causal mechanisms. Both studies are clearly the culmination of much hard work and offer uniquely valuable insights. Here, I wanted to focus on aspects that are generalizable.&lt;/p&gt;
+
+&lt;p&gt;Ideally, we would design an algorithm that takes all available biological features and spits out very high posteriors on causality at these loci. Perhaps the algorithm would even discard those features that are irrelevant. Is such an algorithm feasible? Is there a recipe for inferring causality? To start answering these questions, I’ve summarized the structure of these two studies in the same way one would write a recipe for a cookbook. I’ve made some notes at the end on things that struck me, but I would be very interested in hearing alternative theories as well as examples from other diseases.&lt;/p&gt;
+
+&lt;h2 id=&quot;obesity--ftoirx&quot;&gt;Obesity : FTO/IRX&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Smemo et al. “Obesity-associated variants within FTO form long-range functional connections with IRX3” 2014 Nature&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This paper used the 3D chromatin structure to identify a functional connection between the well-studied FTO locus for obesity and distal gene IRX3; identified enhancers that modulate IRX3; and showed that Irx3-deficient mice have significant body-weight differences.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Claussnitzer et al. “FTO Obesity Variant Circuitry and Adipocyte Browning in Humans” 2015 NEJM&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This paper builds on the previous model to further disentangle the mechanism: a specific causal variant disrupts a repressor motif, the corresponding transcription factors de-represseses an enhancer, this leads to doubling of IRX3/IRX5 expression, and creates a developmental shift in adipocytes. Multiple biological assays were used to validate each step of this mechanism, including knockdown and CRISPR editing in human cells (this validation is the meat of the paper but I won’t focus on it here).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://sashagusev.github.io/images/figure_claussnitzer.png&quot; alt=&quot;locus from Claussnitzer et al&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Perform large-scale GWAS. The strongest genome wide association for BMI lies in introns 1 and 2 of the FTO gene. Focus on this locus.&lt;/li&gt;
+  &lt;li&gt;Use epigenetic annotations from 127 cell-types (the ROADMAP project) to predict the cell-type most likely to be causal. Identify unusually long enhancer in adipocyte progenitors. Measure association between risk haplotype and enhancer activity (2.4x higher) to confirm tissue-specificity.&lt;/li&gt;
+  &lt;li&gt;Use Hi-C data to identify a Topologically Active Domain (TAD) around the lead GWAS SNP and find chromatin interactions with nearby genes, restricting potential causal gene set to those within the TAD.&lt;/li&gt;
+  &lt;li&gt;Identify genes with genotype-associated expression (IRX3/IRX5) from the causal set.&lt;/li&gt;
+  &lt;li&gt;Measure genomewide expression in relevant tissue from risk/non-risk allele carriers and identify differentially expressed genes. Infer targeted cellular processes based on the pathways these genes are in.&lt;/li&gt;
+  &lt;li&gt;Use PMCA method predict causal variant. In short, using weight matrices from known motif families and cross-species analysis, count the number of (a) conserved motifs; (b) multiple consecutively conserved motifs (called “modules”). Measure enrichment of motifs, motifs in modules, and modules relative to local shuffling and identify highest scoring SNP (and the motifs they disrupt).&lt;/li&gt;
+  &lt;li&gt;Multiple motifs were implicated, but &lt;em&gt;ARID5B&lt;/em&gt; had highest expression in relevant (adipose) tissue and expression of &lt;em&gt;ARID5B&lt;/em&gt; gene was correlated with expression of IRX3/IRX5 in controls.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;schizophrenia--mhcc4&quot;&gt;Schizophrenia : MHC/C4&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Sekar et al. “Schizophrenia risk from complex variation of complement component 4” 2016 Nature&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This paper looks at GWAS for schizophrenia in the complicated MHC region, identifies a relationship between copy number and expression of the C4A and C4B genes, and shows that the subsequent expression of the gene is associated with schizophrenia. Multiple biological assays are used to localize the specific neuronal tissues and mechanisms related to these genes and implicate synaptic pruning.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://sashagusev.github.io/images/figure_sekar.png&quot; alt=&quot;locus from Sekar et al&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Perform a large-scale GWAS. The strongest GWAS hit for schizophrenia is in the MHC, with the most significant SNPs lying near the C4 gene. There is a known association to CSMD1 (on chr8) which codes for a regulator of C4. Focus on this gene.&lt;/li&gt;
+  &lt;li&gt;Measure the copy number of each C4 gene was using molecular methods in 162 HapMap CEU samples. Identify four common structural haplotypes.&lt;/li&gt;
+  &lt;li&gt;Identify SNP haplotypes that correlate with the C4 structural haplotypes. Multiple SNP-haplotypes correlated with individual structural haplotypes (but not vice versa).&lt;/li&gt;
+  &lt;li&gt;Measure expression of five regions from 674 post-mortem brains and quantify relationship between C4 copy number and expression. RNA expression was correlated to copy number of C4 and isotypes.&lt;/li&gt;
+  &lt;li&gt;Construct genetic/structural predictors of C4A/C4B expression levels in the brain. Fit &lt;script type=&quot;math/tex&quot;&gt;E \sim \sum_j{\beta_j d_j }&lt;/script&gt; where E is expression and &lt;script type=&quot;math/tex&quot;&gt;d_j&lt;/script&gt; is the number of structural elements of type &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;. These explain 71% and 42% of the variance in expression, more than any single cis-eQTL.&lt;/li&gt;
+  &lt;li&gt;Construct SNP predictors of C4 alleles. Use standard haplotype imputation software (BEAGLE) to predict into large individual-level GWAS data (N=65,000). Associate the imputed expression with schizophrenia as well as local SNPs.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;thoughts&quot;&gt;Thoughts&lt;/h2&gt;
+
+&lt;p&gt;My first thought is that this takes a &lt;em&gt;lot&lt;/em&gt; of work. And that’s partially due to the fact that &lt;strong&gt;both GWAS SNPs were actually tagging unobserved biological mediators between genetics and expression&lt;/strong&gt; (copy number for C4A/B and an enhancer for IRX3/5). The optimistic model where the lead GWAS SNP directly disrupts the nearest gene did not apply. Indeed one of the key findings of the Smemo et al. paper is that the target gene can lie &amp;gt;1MB away from the causal SNP and still interact in 3D chromatin space. Sekar et al. demonstrated how genetic prediction of expression from a small targeted study into a big GWAS helped confirm the impact of C4A/B in a way that could not have been done directly. This is an approach that myself and other groups have been thinking a lot about and I believe it’s a very powerful framework for integrating such mediators across many studies. In both instances, &lt;strong&gt;one link of the causal mechanism was made by looking at genes that code for relevant regulators&lt;/strong&gt;. Sekar et al. focused on the C4 genes because they were regulated by a known schizophrenia-associated gene. Claussnitzer et al. focused on the ARID5B motif because the corresponding gene was co-expressed with IRX3/5 and associated with adipogenesis.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://sashagusev.github.io/images/figure_c4a_gtex.png&quot; alt=&quot;expression of C4A&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The relationship to tissue-specificity is also complicated. Using the GTEx resource (which has generously made data and analysis tools publicly available), we can see above that neither gene is blatantly specific to a relevant tissue: adipose ranks 17th for expression of &lt;a href=&quot;http://gtexportal.org/home/gene/IRX3&quot;&gt;IRX3&lt;/a&gt;, and brain ranks 29th for expression of &lt;a href=&quot;http://gtexportal.org/home/gene/C4A&quot;&gt;C4A&lt;/a&gt;. However, both loci were validated using expression in the relevant tissue, and used absence of expression in other tissues to short-list the possible causal pathways. &lt;strong&gt;Simple cross-tissue comparisons did not point to a single, clearly relevant tissue&lt;/strong&gt;. That said, finding the right tissue was crucial to understanding the underlying mechanism. In the case of C4, the regions of the brain where these effects were most active implicated synaptic pruning. Whereas in the case of IRX, a genetic effect on expression was not observed in whole-adipose tissue, but only in preadipocytes. Background cross-tissue variability appears to be high enough to mask true underlying tissue-specific effects.&lt;/p&gt;
+
+&lt;p&gt;As more loci are characterized in this rigorous way, it will be interesting to see if these observations continue to hold up or if other patterns emerge.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 20 Mar 2016 00:00:00 -0400</pubDate>
+        <link>http://sashagusev.github.io/2016-03/causal.html</link>
+        <guid isPermaLink="true">http://sashagusev.github.io/2016-03/causal.html</guid>
+        
+        
+        <category>gwas</category>
+        
+      </item>
     
       <item>
         <title>Hot takes: interesting papers from Feb</title>
