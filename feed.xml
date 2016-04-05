@@ -5,9 +5,68 @@
     <description>scientist</description>
     <link>http://sashagusev.github.io/</link>
     <atom:link href="http://sashagusev.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 20 Mar 2016 01:22:57 -0400</pubDate>
-    <lastBuildDate>Sun, 20 Mar 2016 01:22:57 -0400</lastBuildDate>
+    <pubDate>Tue, 05 Apr 2016 02:51:59 -0400</pubDate>
+    <lastBuildDate>Tue, 05 Apr 2016 02:51:59 -0400</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Hot takes: interesting papers from March</title>
+        <description>&lt;p&gt;&lt;em&gt;Intriguing papers that were published in the previous month, with highlights.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;gene-expression&quot;&gt;Gene Expression&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/ng/journal/vaop/ncurrent/full/ng.3538.html&quot;&gt;Integration of summary data from GWAS and eQTL studies predicts complex trait gene targets, Zhu et al. Nat Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“We propose a method (called SMR) that integrates summary-level data from GWAS with data from expression quantitative trait locus (eQTL) studies to identify genes whose expression levels are associated with a complex trait because of pleiotropy … In the SMR analysis of five complex traits, we initially identified associations for 289 genes by the SMR test. However, 185 of the 289 genes did not pass the subsequent HEIDI test (PHEIDI &amp;lt; 0.05), suggesting that the majority of the associations identified by the SMR test could be explained by linkage due to the large number of cis-eQTLs widely spread across the genome … We observed from the analysis of five complex human traits that about two-thirds of the genes identified by SMR were not the genes nearest the top GWAS SNPs.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005908&quot;&gt;Insight into Genotype-Phenotype Associations through eQTL Mapping in Multiple Cell Types in Health and ImmuneMediated Disease, Peters et al. PLoS Gen&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“We performed eQTL mapping in five primary immune cell types from patients with active inflammatory bowel disease (n = 91), anti-neutrophil cytoplasmic antibody-associated vasculitis (n = 46) and healthy controls (n = 43), revealing eQTLs present only in the context of active inflammatory disease. Moreover, we show that following treatment a proportion of these eQTLs disappear. Through joint analysis of expression data from multiple cell types, we reveal that previous estimates of eQTL immune cell-type specificity are likely to have been exaggerated”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/ng/journal/v48/n4/full/ng.3513.html&quot;&gt;A multiple-phenotype imputation method for genetic studies, Dahl et al. Nat Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Here we have proposed a general method to impute missing phenotypes in samples with arbitrary levels of relatedness and population structure and missingness patterns … We are extending the model to test a SNP for association with multiple phenotypes, using a spike-and-slab mixture prior on effect sizes to allow for only a subset of phenotypes to be associated. Incorporating significant SNPs into our model would likely increase imputation accuracy … Higher-dimensional data sets, such as ‘three-dimensional’ gene expression experiments across multiple samples, genes and tissues, also have missing ‘phenotypes’ that may be reliably imputed to boost signal in downstream analyses.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.cell.com/ajhg/fulltext/S0002-9297(16)00071-9&quot;&gt;Imputing Gene Expression in Uncollected Tissues Within and Beyond GTEx, Wang et al. AJHG&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“In this work, we developed multi-tissue imputation methods to impute gene expression in uncollected or inaccessible tissues … we propose a mixed-model-based
+random-forest approach … our proposed methods impute multi-tissue expression levels on the basis of eQTLs, tissue-tissue expression-level correlations, and tissue-specific PCs of expression data and harness genetic factors, major developmental biological factors, and environmental factors. Additionally, our MixRF approach captures the dominant and recessive eQTL effects [(such that 58%, 38%, or 4% of the eQTL expression pairs better fit an additive,
+dominant, or recessive eQTL model, respectively)], as well as the interactions among eQTLs, tissue types, and other factors.”&lt;/p&gt;
+
+&lt;h1 id=&quot;popgen&quot;&gt;Popgen&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/nature/journal/v531/n7593/full/nature17143.html&quot;&gt;Sex speeds adaptation by altering the dynamics of molecular evolution, McDonald et al. Nature&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Together, our results show that sex increases the rate of adaptation both by combining beneficial mutations into the same background and by separating deleterious mutations from advantageous backgrounds that would otherwise drive them to fixation. In other words, sex makes natural selection more efficient at sorting beneficial from deleterious mutations.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.cell.com/current-biology/abstract/S0960-9822(16)30247-0&quot;&gt;The Combined Landscape of Denisovan and Neanderthal Ancestry in Present-Day Humans, Sankararaman et al. Current Bio&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“In Oceanians, the average size of Denisovan fragments is larger than Neanderthal fragments, implying a more recent average date of Denisovan admixture in the history of these populations. We document more Denisovan ancestry in South Asia than is expected based on existing models of history, reflecting a previously undocumented mixture related to archaic humans. Denisovan ancestry, just like Neanderthal ancestry, has been deleterious on a modern human genetic background, as reflected by its depletion near genes. Finally, the reduction of both archaic ancestries is especially pronounced on chromosome X and near genes more highly expressed in testes than other tissues. This suggests that reduced male fertility may be a general feature of mixtures of human populations diverged by &amp;gt;500,000 years.”&lt;/p&gt;
+
+&lt;h1 id=&quot;gwas-causal-mechanisms&quot;&gt;GWAS causal mechanisms&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/ng/journal/vaop/ncurrent/full/ng.3529.html&quot;&gt;Genetic risk for autism spectrum disorders and neuropsychiatric variation in the general population, Robinson et al. Nat Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Using several large ASD consortium and population-based resources (total n &amp;gt; 38,000),
+we find genome-wide genetic links between ASDs and typical variation in social behavior and adaptive functioning …  These results suggest that familiality should be studied in a manner beyond a count of categorically affected family members and that trait variation in controls can provide insight into the underlying etiology of severe neurodevelopmental and psychiatric disorders”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://science.sciencemag.org/content/352/6281/91&quot;&gt;A long noncoding RNA associated with susceptibility to celiac disease, Castellans-Rubio et al. Science&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“The studies presented here identify lnc13 as a previously unrecognized lncRNA that harbors CeDassociated SNPs; demonstrate that lnc13 is degraded by Dcp2 after NF-kB activation; and, most importantly, show that lnc13 is able to regulate the expression of a subset of CeD-associated inflammatory genes through interaction with chromatin and the multifunctional protein hnRNPD. We believe that lnc13 plays a role in the maintenance of intestinal mucosal immune homeostasis and that dysregulation of lnc13 expression and function—as a result of decapping and genetic polymorphisms, respectively—contributes to inflammation in autoimmune disorders such as CeD”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://science.sciencemag.org/content/351/6278/1166&quot;&gt;Rare variant in scavenger receptor BI raises HDL cholesterol and increases risk of coronary heart disease, Zanoni et al. Science &lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Through targeted sequencing of coding regions of lipid-modifying genes in 328 individuals with extremely high plasma HDL-C levels, we identified a homozygote for a loss-of-function
+variant, in which leucine replaces proline 376 (P376L), in SCARB1, the gene encoding SR-BI. The P376L variant impairs post-translational processing of SR-BI and abrogates selective HDL cholesterol uptake in transfected cells … Our results are consistent with a growing theme in HDL biology that steadystate concentrations of HDL-C are not causally protective against CHD and that HDL function and cholesterol flux may be more important than absolute levels.”&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Apr 2016 00:00:00 -0400</pubDate>
+        <link>http://sashagusev.github.io/2016-04/papers.html</link>
+        <guid isPermaLink="true">http://sashagusev.github.io/2016-04/papers.html</guid>
+        
+        
+        <category>papers</category>
+        
+      </item>
     
       <item>
         <title>A causal mechanisms cookbook</title>
