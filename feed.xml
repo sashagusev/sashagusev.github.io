@@ -5,9 +5,68 @@
     <description>scientist</description>
     <link>http://sashagusev.github.io/</link>
     <atom:link href="http://sashagusev.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 05 Apr 2016 02:54:56 -0400</pubDate>
-    <lastBuildDate>Tue, 05 Apr 2016 02:54:56 -0400</lastBuildDate>
+    <pubDate>Fri, 17 Jun 2016 01:01:17 -0400</pubDate>
+    <lastBuildDate>Fri, 17 Jun 2016 01:01:17 -0400</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Hot takes: interesting papers from Apr/May</title>
+        <description>&lt;p&gt;&lt;em&gt;Better late than never&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;gwascausal-mechanisms&quot;&gt;GWAS/causal mechanisms&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/nature/journal/v533/n7604/full/nature17671.html&quot;&gt;Genome-wide association study identifies 74 loci associated with educational attainment, Okbay et al. Nature&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The Supplemental Materials to this paper contain the most thorough and clear description of cutting-edge GWAS analyses I have read of late&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/nature/journal/v533/n7601/full/nature17939.html&quot;&gt;Parkinson-associated risk variant in distal enhancer of α-synuclein modulates target gene expression, Soldner et al. Nature&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Here we describe an alternative experimental approach to identify functional risk variants based on three recent innovations in genetics and molecular biology: (i) the prioritization of GWAS-identified risk variants in regulatory elements such as distal enhancers annotated based on genome-scale epigenetic data; (ii) the generation of genetically controlled isogenic pluripotent stem cell lines in which specific disease-associated genetic variants are the sole modified experimental variable using efficient gene-editing technologies such as the CRISPR/Cas9 system; and (iii) the analysis of cis-acting effects of candidate variants on allele-specific gene expression through deletion or exchange of disease-associated regulatory elements.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/ng/journal/vaop/ncurrent/full/ng.3570.html&quot;&gt;Detection and interpretation of shared genetic influences on 42 human traits, Pickerel et al. Nat Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“It is also striking to note how many genetic variants influence multiple traits but without a consistent correlation in effect sizes … Another possibility is that a given genetic variant often influences the function of multiple cell types through separate molecular pathways or that the effects of a variant on two related phenotypes vary according to an individual’s environmental exposures.”&lt;/p&gt;
+
+&lt;h2 id=&quot;regulatory-mechanisms&quot;&gt;Regulatory mechanisms&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/nmeth/journal/v13/n4/abs/nmeth.3799.html&quot;&gt;Tissue-specific regulatory circuits reveal variable modular perturbations across complex diseases, Marbach et al. Nat Methods&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“For most traits, evidence of increased connectivity between perturbed genes extended to variants that did not pass the genome-wide significance threshold, indicating that regulatory network information will be useful for prioritizing candidate variants.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.cell.com/cell/abstract/S0092-8674(16)30339-7&quot;&gt;Pooled ChIP-Seq Links Variation in Transcription Factor Binding to Complex Disease Risk, Tehranchi et al. Cell&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Altogether, 3,601 of our bQTLs have been previously implicated by GWAS, either directly or indirectly via LD (r2 &amp;gt; 0.8 in YRI). These represent 2,282 different disease-associated variants, 995 (44%) of which are associated with bQTLs for multiple factors. Interestingly, this is 8.0-fold higher than the overall fraction of bQTLs associated with multiple factors, suggesting that variants affecting multiple TFs are more likely to impact phenotypes … intersecting GWAS loci with all binding sites of a TF may yield misleading results because these overlaps are dominated by SNPs with no effect on TF binding.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.pnas.org/content/113/23/6508.abstract&quot;&gt;Syntax compensates for poor binding sites to encode tissue specificity of developmental enhancers, Farley et al. PNAS&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“Surprisingly, enhancers with low-affinity binding sites can mediate robust tissue specific patterns of gene expression when they are organized with optimal syntax. Such enhancers may be a vastly underappreciated feature of the regulatory genome.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://genome.cshlp.org/content/early/2016/05/03/gr.200535.115.abstract&quot;&gt;Basset: Learning the regulatory code of the accessible genome with deep convolutional neural networks, Kelley et al. Gen Res&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“We introduce an open source package Basset to apply CNNs [deep convolutional neural networks] to learn the functional activity of DNA sequences from genomics data. We trained Basset on a compendium of accessible genomic sites mapped in 164 cell types by DNase-seq and demonstrate greater predictive accuracy than previous methods. Basset predictions for the change in accessibility between variant alleles were far greater for GWAS SNPs that are likely to be causal relative to nearby SNPs in linkage disequilibrium with them.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.nature.com/ng/journal/v48/n5/abs/ng.3539.html&quot;&gt;Enhancer–promoter interactions are encoded by complex genomic signatures on looping chromatin, Whalen et al. Nat Genet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“The resulting models accurately predict individual enhancer–promoter interactions across multiple cell lines with a false discovery rate up to 15 times smaller than that obtained using the closest gene …  Most of this signature is not proximal to the enhancers and promoters but instead decorates the looping DNA.”&lt;/p&gt;
+
+&lt;h2 id=&quot;gene-expression&quot;&gt;Gene expression&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://science.sciencemag.org/content/352/6285/600.long&quot;&gt;RNA splicing is a primary link between genetic variation and disease, Li et al. Science&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“About ~65% of expression quantitative trait loci (eQTLs) have primary effects on chromatin, whereas the remaining eQTLs are enriched in transcribed regions … splicing QTLs are major contributors to complex traits, roughly on a par with variants that affect gene expression levels.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.cell.com/ajhg/abstract/S0002-9297(16)00071-9&quot;&gt;Imputing Gene Expression in Uncollected Tissues Within and Beyond GTEx, Wang et al. AJHG&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;“By analyzing data from nine selected tissue types in the GTEx pilot project, we demonstrated that harnessing expression quantitative trait loci (eQTLs) and tissue-tissue expression-level correlations can aid imputation of transcriptome data from uncollected GTEx tissues. More importantly, we showed that by using GTEx data as a reference, one can impute expression levels in inaccessible tissues in non-GTEx expression studies.”&lt;/p&gt;
+</description>
+        <pubDate>Fri, 17 Jun 2016 00:00:00 -0400</pubDate>
+        <link>http://sashagusev.github.io/2016-06/papers.html</link>
+        <guid isPermaLink="true">http://sashagusev.github.io/2016-06/papers.html</guid>
+        
+        
+        <category>papers</category>
+        
+      </item>
     
       <item>
         <title>Hot takes: interesting papers from March</title>
