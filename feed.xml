@@ -5,8 +5,8 @@
     <description>scientist</description>
     <link>http://sashagusev.github.io/</link>
     <atom:link href="http://sashagusev.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 29 Oct 2017 02:31:18 -0400</pubDate>
-    <lastBuildDate>Sun, 29 Oct 2017 02:31:18 -0400</lastBuildDate>
+    <pubDate>Sun, 29 Oct 2017 02:36:41 -0400</pubDate>
+    <lastBuildDate>Sun, 29 Oct 2017 02:36:41 -0400</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -75,6 +75,9 @@
 &lt;p&gt;The dashed line is genome-wide significance, which is overkill for this analysis, but even for that cutoff all it takes is 70,000 individuals with measured expression. For comparison, GEO currently contains 1.2M human samples. Multiple studies are gearing up for whole-genome sequencing of 100,000 samples, with costs comparable to transcriptomics. It is, at most, a matter of years before we start to have an answer.&lt;/p&gt;
 
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to Bogdan Pasaniuc for helpful comments&lt;/em&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;Footnote.&lt;/strong&gt;
 Statements on causality from &lt;a href=&quot;#Gusev:2016&quot;&gt;(Gusev et al. 2016)&lt;/a&gt;:&lt;/p&gt;
 
