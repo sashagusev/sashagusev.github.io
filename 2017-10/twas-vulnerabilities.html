@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title> Interpretation of TWAS and its vulnerabilities —  &raquo;  Sasha Gusev</title>
-<meta name="description" content="scientist">
+<title> Interpretation of TWAS and its vulnerabilities —  &raquo;  Notes</title>
+<meta name="description" content="">
 <meta name="keywords" content="">
 <link rel="canonical" href="/2017-10/twas-vulnerabilities.html">
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
@@ -19,7 +19,7 @@
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Interpretation of TWAS and its vulnerabilities" />
-<meta name="twitter:description" content="scientist" />
+<meta name="twitter:description" content="" />
 <meta name="twitter:image" content="" />
 
 <!-- Google plus -->
@@ -30,9 +30,9 @@
 <meta property="og:locale" content="">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Interpretation of TWAS and its vulnerabilities">
-<meta property="og:description" content="scientist">
+<meta property="og:description" content="">
 <meta property="og:url" content="/2017-10/twas-vulnerabilities.html">
-<meta property="og:site_name" content="Sasha Gusev">
+<meta property="og:site_name" content="Notes">
 
         <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -47,9 +47,13 @@
         <div class="wrapper">
             <header class="header">
     <div class="navigation">
-        <a href="/" class="logo">Sasha Gusev : Notes</a>
+        <a href="/" class="logo">Notes</a>
         <br />
-<i>I study complex traits. These are my thoughts. I work <a href="http://gusevlab.org/">here</a> and make <a href="https://scholar.google.com/citations?user=mRCDpEIAAAAJ&hl=en">these</a>. Get in touch with me by email at {the letter “s”}{my last name}@gmail.com.</i>
+		My name is Sasha Gusev. <br />
+		I study the genetics of complex traits.<br />
+		I work <a href="http://gusevlab.org/">here</a> on <a href="https://scholar.google.com/citations?user=mRCDpEIAAAAJ&hl=en">these</a>.
+		<br />
+		Reach me at sgusev@gmail.com
     </div>
 </header>
 
@@ -61,6 +65,8 @@
 
 <div class="content">
     <p>The recent pre-print of <a href="#Wainberg:2017">(Wainberg et al. 2017)</a> examined the TWAS approach for prioritizing target genes in GWAS studies. The work has relevance to a broad class of methods for “post-GWAS” analysis and spurred interesting discussions. As an author of one of these methods <a href="#Gusev:2016">(Gusev et al. 2016)</a>, I thought it would be useful to talk about what TWAS is doing; why; and how it fits into our current understanding of complex traits.</p>
+
+<p><strong>UPDATE: The authors respond  <a href="https://medium.com/@Vulnerabilities/response-to-interpretation-of-twas-and-its-vulnerabilities-bc073e606e2c">here</a> with thoughtful points and useful additional context.</strong> Please read the whole thing, but I specifically want to echo their point that understanding how well TWAS (and other methods) prioritize causal genes is a critical question right now. I think one way to move toward an answer is by establishing clear metrics for what we consider a successful prioritization (ideally metrics that are agnostic of QTL evidence) and systematically evaluating the performance of all commonly used approaches (including manual curation).</p>
 
 <h2 id="what-is-twas">What is TWAS?</h2>
 <p>TWAS is a test for significant association between the cis component of gene expression and the GWAS trait. It is part of a broad class of approaches that identify relationships between QTL and GWAS to find target genes. These approaches have many applications: risk prediction; pathway enrichment; causal inference between traits; drug repurposing; identifying disease-associated epigenetic features; and gene prioritization. In their pre-print, WEA explore the application of TWAS to causal gene prioritization in a GWAS of Crohn’s disease and LDL cholesterol. First, they observe loci where TWAS identifies an association at the presumed causal gene, but also at other genes. Second, they switch to less appropriate tissues and find that TWAS often no longer observes an association for the presumed causal gene but observes associations to other genes. They conclude that the approach is therefore “invalid” for finding causal genes. This conclusion is driven by a misinterpretation of TWAS as a causal inference test rather than a test for association. Subsequent claims of “vulnerability”, “false discovery”, and “instability” stem from this misinterpretation. TWAS is neither vulnerable nor invulnerable to discovering non-causal genes because it is not a test for causality. Just as a GWAS study identifies significantly associated non-causal SNPs which need to be fine-mapped, so too a TWAS study will find significantly associated non-causal genes. WEA do not present any cases of false <em>associations</em>, which would be a true vulnerability for TWAS. Although WEA focus on our TWAS/FUSION method because it’s so easy to use [kidding!], they conclude that these vulnerabilities apply to many methods including SMR, PrediXcan, Sherlock, coloc, QTLMatch, eCAVIAR, enloc, RTC – which I’ll generally refer here to as QTL/GWAS methods.</p>
@@ -76,7 +82,8 @@
 <p>To my knowledge, none of these methods claim to perform causal gene discovery (see footnote). Causal inference is challenging. It is especially challenging when you have a single snapshot of the phenotypes you’re interested in and a relatively small number of independent variants. So these approaches estimate support for less stringent gene-disease relationships: how strongly are the variants associated with expression also associated with the trait? what’s the probability that the same causal variants are shared between expression and the trait?</p>
 
 <h2 id="why-do-we-care-about-these-genes-if-they-are-not-causal">Why do we care about these genes if they are not causal?</h2>
-<p>While the QTL/GWAS methods do not perform causal inference, we still believe they are useful in prioritizing genes for experimental follow-up relative to other GWAS approaches. This is challenging to quantify because there are so few known examples of true-positive causal genes, and even fewer known examples of true-negatives. One nice aspect of the WEA analysis is that they tried to find such genes in the literature and then asked whether they show up as TWAS hits. In fact, most of the known genes DO came up as significant TWAS associations when evaluated in the expected tissue (though, keep in mind that many of these genes were initially identified precisely because they had eQTLs) and the number of null genes with associations is relatively low (assuming they are all truly null). I would humbly recommend the alternative title “<em>TWAS is actually pretty good at identifying association for causal genes</em>”. That said, there are now multiple examples in the literature that these methods are doing something useful:</p>
+
+<p>While the QTL/GWAS methods do not perform causal inference, we still believe they are useful in prioritizing genes for experimental follow-up relative to other GWAS approaches. This is challenging to quantify because there are so few known examples of true-positive causal genes, and even fewer known examples of true-negatives. One nice aspect of the WEA analysis is that they tried to find such genes in the literature and then asked whether they show up as TWAS hits. In fact, most of the known genes DO came up as significant TWAS associations when evaluated in the expected tissue (though, keep in mind that many of these genes were initially identified precisely because they had eQTLs) and the number of null genes with associations is relatively low (assuming they are all truly null). I would humbly recommend the alternative title “<em>TWAS is actually pretty good at identifying association for causal genes</em>”. [<strong>UPDATE:</strong> <em>The authors point out in their <a href="https://medium.com/@Vulnerabilities/response-to-interpretation-of-twas-and-its-vulnerabilities-bc073e606e2c">response</a> that they only evaluated those genes that were TWAS associations and therefore did not assess sensitivity</em>]. That said, there are now multiple examples in the literature that these methods are doing something useful:</p>
 
 <ul>
   <li>In <a href="#Gusev:2016">(Gusev et al. 2016)</a> we showed that genes identified by a height TWAS were more correlated with measured height (out of sample) than the nearest gene or the best eQTL gene for a GWAS hit. That TWAS genes are more strongly associated with phenotype suggests that they are more likely to be causal than nearest genes.</li>
