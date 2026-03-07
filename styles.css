@@ -1,12 +1,9 @@
 :root {
-  --bg-top: #f9fbfc;
-  --bg-bottom: #eef3f6;
-  --surface: #ffffff;
-  --text: #1f2933;
-  --muted: #506170;
-  --accent: #5da9dd;
-  --accent-soft: #d8ecf9;
-  --border: #d9e3ea;
+  --bg: #ffffff;
+  --text: #0f0f0f;
+  --muted: #5a5a5a;
+  --underline: #c8c8c8;
+  --link-hover: #6b8fa8;
 }
 
 * {
@@ -16,57 +13,64 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Source Sans 3", "Segoe UI", Tahoma, sans-serif;
+  font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
   color: var(--text);
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  background: var(--bg);
   display: grid;
   place-items: center;
-  padding: 2rem 1rem;
+  padding: 4rem 2rem;
 }
 
-.card {
-  width: min(700px, 100%);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-  box-shadow: 0 8px 20px rgba(34, 60, 80, 0.08);
+main {
+  width: min(540px, 100%);
 }
 
 h1 {
-  margin: 0 0 1rem;
-  font-size: clamp(1.7rem, 3.2vw, 2.2rem);
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: #15202b;
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.rule {
+  border: none;
+  height: 1px;
+  background: var(--underline);
+  margin: 0 0 1.75rem;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: draw-rule 4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+@keyframes draw-rule {
+  to { transform: scaleX(1); }
 }
 
 p {
-  margin: 0.8rem 0;
-  font-size: clamp(1.05rem, 2.1vw, 1.15rem);
-  line-height: 1.65;
+  margin: 0;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.4;
   color: var(--muted);
 }
 
+p + p {
+  margin-top: 2rem;
+}
+
 a {
-  color: #247eb5;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
-  background-color: var(--accent-soft);
-  padding: 0.05rem 0.3rem;
-  border-radius: 4px;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--underline);
+  transition: color 200ms ease, text-decoration-color 200ms ease;
 }
 
 a:hover,
 a:focus-visible {
-  color: #195f8b;
-  border-color: #195f8b;
+  color: var(--link-hover);
+  text-decoration-color: var(--link-hover);
   outline: none;
-}
-
-@media (max-width: 520px) {
-  .card {
-    border-radius: 10px;
-  }
 }
