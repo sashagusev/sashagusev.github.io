@@ -14,7 +14,7 @@
   </head>
   <body>
     <main aria-label="Introduction">
-      <h1>Hello, I am Sasha Gusev.</h1>
+      <h1>Sasha Gusev.</h1>
 
       <hr class="rule" />
 
@@ -33,7 +33,7 @@
           >scientific papers</a
         >.</p>
         
-        <p>I sometimes write informally about topics in genetics at 
+        <p>I've written a <a href="http://gusevlab.org/projects/hsq/">primer</a> on heritability and I sometimes write informally about topics in genetics at 
         <a
           href="https://theinfinitesimal.substack.com/"
           target="_blank"
@@ -51,8 +51,33 @@
           target="_blank"
           rel="noopener noreferrer"
           >bluesky</a
-        >
+        >.
       	</p>
+      	
+      	<p>Some small academic side projects I have worked on recently:</p>
+      	<ul>
+      		<li><a href="https://sashagusev.github.io/PISim/">A simulator to understand and visualize research lab spending</a></li>
+      		<li><a href="https://sashagusev.github.io/nih-grants-feed/">An aggregator of NIH funding posts</a></li>
+      		<li><a href="https://sashagusev.github.io/Genetics_Pub_Dates/">An interactive visualization of publication time in genetics/genomics</a></li>
+      		<li><a href="https://sashagusev.github.io/gwas_lookup/">A search tool for GWAS variants</a></li>
+      		<li><a href="https://sashagusev.github.io/Stabilizing-Selection-Sim/">An interactive simulation of stabilizing selection</a></li>
+      	</ul>
+      	
+      	 <p>... and some non-academic side projects:</p>
+      	<ul>
+      		<li><a href="https://sashagusev.github.io/ArtSwipe/">A swipe-style machine learning model for art</a></li>
+      		<li><a href="https://sashagusev.github.io/world_music/">A jukebox of music from different countries and times</a></li>
+      		<li><a href="https://sashagusev.github.io/LLM_US_Immigration/">An analysis of immigration sentiment in US Congressional speeches</a></li>
+      		<li><a href="https://sashagusev.github.io/5B_Spending/">An attempt to visualize $5B in US government investment</a></li>
+      	</ul>
     </main>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('h1, p, li').forEach(function (el, i) {
+          el.classList.add('fade-up');
+          el.style.setProperty('--delay', (0.1 + i * 0.12) + 's');
+        });
+      });
+    </script>
   </body>
 </html>
